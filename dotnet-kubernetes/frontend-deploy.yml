@@ -21,7 +21,7 @@ spec:
                    - name: ProductEndpoint
                         value: http://productsbackend
                    - name: ImagePrefix
-                        value: https://animated-succotash-qx444w77763v4g-32001.app.github.dev/images
+                        value: http://https://animated-succotash-qx444w77763v4g-32001.app.github.dev/images
     selector:
         matchLabels:
             app: storefrontend
