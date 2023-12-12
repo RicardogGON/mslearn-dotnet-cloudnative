@@ -12,7 +12,7 @@ spec:
         spec:
             containers:
                - name: storefrontend
-                image: ricardoggon/storeimage:latest
+                image: ricardoggon/productservice:latest
                 ports:
                    - containerPort: 80
                 env:
