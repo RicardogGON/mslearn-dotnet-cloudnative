@@ -2,39 +2,39 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: storefrontend
+    name: storefrontend
 spec:
-  replicas: 1
-  template:
-    metadata:
-      labels:
-        app: storefrontend
-    spec:
-      containers:
-      - name: storefrontend
-        image: [YOUR DOCKER USER NAME]/storeimage:latest
-        ports:
-        - containerPort: 80
-        env:
-        - name: ASPNETCORE_URLS
-          value: http://*:80
-        - name: ProductEndpoint
-          value: http://productsbackend
-        - name: ImagePrefix
-          value: http://localhost/images
-  selector:
-    matchLabels:
-      app: storefrontend
+    replicas: 1
+    template:
+        metadata:
+            labels:
+                app: storefrontend
+        spec:
+            containers:
+               - name: storefrontend
+                image: ricardoggon/storeimage:latest
+                ports:
+                   - containerPort: 80
+                env:
+                   - name: ASPNETCORE_URLS
+                        value: http://*:80
+                   - name: ProductEndpoint
+                        value: http://productsbackend
+                   - name: ImagePrefix
+                        value: https://animated-succotash-qx444w77763v4g-32000.app.github.dev/
+    selector:
+        matchLabels:
+            app: storefrontend
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: storefrontend
+    name: storefrontend
 spec:
-  type: NodePort
-  ports:
-  - port: 80
-    targetPort: 80
-    nodePort: 32000
-  selector:
-    app: storefrontend
+    type: NodePort
+    ports:
+   - port: 80
+        targetPort: 80
+        nodePort: 32000
+ 	selector:
+        app: storefrontend
